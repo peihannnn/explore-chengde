@@ -1,3 +1,10 @@
+/*
+  Layout plan: the mobile layout uses a focused single-column journey with
+  layered editorial artwork. At 900px and above, each screen becomes a wider
+  two-column composition so content, photography, and controls use desktop
+  space instead of remaining inside a phone-width column.
+*/
+
 /* Base styles */
 :root {
   font-family: Georgia, 'Times New Roman', serif;
@@ -16,6 +23,7 @@ button { font: inherit; }
 
 .app {
   min-height: 100svh;
+  /* Grid centers each active screen in the browser viewport. */
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -182,6 +190,7 @@ button { font: inherit; }
   z-index: 7;
   right: 7.2%;
   bottom: clamp(66px, 8.6vh, 84px);
+  /* Grid centers the button label and arrow inside the circle. */
   display: grid;
   place-content: center;
   width: clamp(114px, 31vw, 140px);
@@ -296,6 +305,7 @@ button { font: inherit; }
 }
 
 .back-button {
+  /* Grid centers the arrow icon inside its circular hit area. */
   display: grid;
   place-items: center;
   width: 40px;
@@ -363,6 +373,7 @@ button { font: inherit; }
 .plan-fieldset legend > span { min-width: 42px; font-size: .92em; }
 
 .duration-options {
+  /* Grid gives the three time choices equal-width columns. */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin: 10px 0 0;
@@ -396,6 +407,7 @@ button { font: inherit; }
 
 .interest-row {
   position: relative;
+  /* Grid aligns each thumbnail, label, and arrow as one option row. */
   display: grid;
   grid-template-columns: clamp(70px, 21vw, 96px) 1fr 26px;
   align-items: center;
@@ -564,6 +576,7 @@ button { font: inherit; }
 
 .route-flow li {
   position: relative;
+  /* Grid aligns each route number with its explanatory text. */
   display: grid;
   grid-template-columns: 24px 1fr;
   align-items: center;
@@ -576,6 +589,7 @@ button { font: inherit; }
 .route-step-number {
   position: relative;
   z-index: 1;
+  /* Grid centers the number inside the circular route marker. */
   display: grid;
   place-items: center;
   width: 23px;
@@ -611,6 +625,7 @@ button { font: inherit; }
   text-transform: uppercase;
 }
 
+/* Grid presents duration and interest as two summary columns. */
 .preference-summary dl { display: grid; grid-template-columns: .8fr 1.2fr; gap: 15px; margin: 0; }
 .preference-summary dl div { min-width: 0; }
 .preference-summary dt { margin-bottom: 3px; color: #6a675f; font-size: .7rem; }
@@ -651,6 +666,133 @@ button { font: inherit; }
   .route-flow ol { margin-top: 17px; }
   .route-flow li { min-height: 68px; }
   .preference-summary { bottom: 16px; }
+}
+
+/* Desktop layout: expands the mobile experience into a 1440px editorial frame. */
+@media (min-width: 900px) {
+  .app { width: 100%; }
+
+  .welcome-page,
+  .plan-page,
+  .preparation-page {
+    width: min(100%, 1440px);
+    min-height: 100svh;
+    aspect-ratio: auto;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Welcome: text occupies the left column and photography fills the right. */
+  .welcome-header { padding: 48px 5.5% 0; }
+  .brand-lockup { font-size: .86rem; }
+  .welcome-copy { width: 48%; padding: clamp(70px, 10vh, 120px) 0 0 6%; }
+  .welcome-copy h1 { font-size: clamp(6.5rem, 9.5vw, 9rem); line-height: .82; }
+  .welcome-copy__intro { margin-top: 34px; font-size: clamp(1.55rem, 2.15vw, 2.05rem); }
+  .welcome-copy__description { max-width: 370px; font-size: 1rem; }
+  .welcome-page--zh .welcome-copy h1 { font-size: clamp(6rem, 8.5vw, 8.2rem); }
+
+  .landscape {
+    top: 0;
+    bottom: 0;
+    left: 52%;
+    height: 100%;
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 7% 73%, 4% 47%);
+    background-position: 50% 52%;
+  }
+
+  .navy-shape--top { top: -125px; right: -90px; width: 330px; height: 300px; }
+  .navy-shape--bottom { bottom: -180px; left: 36%; width: 390px; height: 500px; }
+  .start-button { right: auto; bottom: 10%; left: 43%; width: 150px; }
+  .theme-index { right: 5.5%; bottom: 8%; left: auto; }
+
+  /* Planning: editorial introduction sits left while choices form a desktop panel right. */
+  .plan-topbar { padding: 42px 5.5% 0; }
+  .plan-heading { width: 42%; padding: clamp(74px, 10vh, 118px) 0 0 6%; }
+  .plan-heading h1 { font-size: clamp(4.8rem, 6.4vw, 6.3rem); }
+  .plan-subtitle { margin-top: 14px; font-size: 1.55rem; }
+  .plan-page--zh .plan-heading h1 { font-size: clamp(4.2rem, 5.5vw, 5.5rem); }
+
+  .plan-banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 44%;
+    height: 50%;
+    margin: 0;
+    clip-path: polygon(0 22%, 12% 14%, 30% 8%, 51% 10%, 70% 20%, 87% 37%, 100% 54%, 100% 100%, 0 100%);
+    background-position: 47% 54%;
+  }
+
+  .plan-form {
+    position: absolute;
+    top: clamp(124px, 16vh, 176px);
+    right: 6%;
+    width: 48%;
+    max-width: 660px;
+    padding: 0;
+  }
+
+  .duration-options button { min-height: 112px; }
+  .duration-options button::before { width: 102px; height: 82px; }
+  .duration-options strong { font-size: 3.1rem; }
+  .interests-fieldset { margin-top: 38px; }
+
+  .interest-options {
+    /* Desktop grid turns the four interests into a balanced two-by-two chooser. */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+  }
+
+  .interest-row { grid-template-columns: 92px 1fr 24px; min-height: 90px; }
+  .interest-thumb { height: 68px; }
+  .interest-label { font-size: 1.04rem; }
+  .continue-button { width: 220px; margin: 32px 0 0 auto; }
+  .plan-corner-shape { top: -130px; right: -70px; width: 380px; height: 300px; }
+  .plan-gold-line { right: 0; left: auto; width: 48%; }
+
+  /* Route preview: story steps anchor the left while the destination image fills the right. */
+  .route-preview-heading { width: 43%; padding: clamp(66px, 9vh, 104px) 0 0 6%; }
+  .route-preview-heading h1 { font-size: clamp(4.4rem, 5.9vw, 5.9rem); }
+  .route-preview-heading > p:last-child { max-width: 470px; margin-top: 16px; font-size: 1.08rem; }
+  .preparation-page--zh .route-preview-heading h1 { font-size: clamp(4rem, 5.2vw, 5.2rem); }
+
+  .route-photo { top: 0; right: 0; bottom: 0; left: 49%; background-position: 50% 54%; }
+  .preparation-shape { top: -125px; right: -70px; width: 380px; height: 300px; }
+
+  .route-flow {
+    top: auto;
+    bottom: 12%;
+    left: 5.5%;
+    width: 52%;
+    height: 250px;
+    border-radius: 34% 66% 46% 54% / 36% 38% 62% 64%;
+    padding: 44px 58px 38px;
+  }
+
+  .route-flow ol {
+    /* Desktop grid changes the route explanation from a vertical list to three steps. */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    margin-top: 30px;
+  }
+
+  .route-flow ol::before { top: 11px; right: 12%; bottom: auto; left: 11px; width: auto; height: 1px; }
+  .route-flow li { display: block; min-height: 0; padding-right: 12px; font-size: 1rem; }
+  .route-step-number { margin-bottom: 18px; }
+
+  .preference-summary {
+    right: 5.5%;
+    bottom: 6%;
+    left: auto;
+    width: min(38%, 510px);
+    padding: 22px 26px 24px;
+  }
+
+  .preference-summary > p { margin-bottom: 15px; }
+  .preference-summary dt { font-size: .78rem; }
+  .preference-summary dd { font-size: 1.08rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
