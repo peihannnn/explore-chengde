@@ -1,32 +1,34 @@
-# React + TypeScript + Vite
+# Explore Chengde
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Explore Chengde is a bilingual mobile guide prototype for Chengde Mountain Resort. It uses the course-required technologies: semantic HTML, CSS, and vanilla JavaScript.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- English and Chinese language switching
+- Welcome, visit-planning, and route-preview screens
+- 30, 60, and 90 minute visit choices
+- Four interest options
+- Preserved selections across screens
+- Responsive mobile-first editorial design
 
-## React Compiler
+## Project structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```text
+index.html   Page structure and accessible content
+style.css    Layout, typography, responsive design, and visual styling
+script.js    Language switching, navigation, selections, and DOM updates
+images/      Project photography
+references/  Original design reference
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Run locally
+
+No installation or build step is required. Open `index.html` directly in a browser, or serve the folder with any simple local web server.
+
+For example:
+
+```bash
+python3 -m http.server 5173
+```
+
+Then open `http://localhost:5173`.

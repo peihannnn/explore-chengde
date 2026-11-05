@@ -1,13 +1,84 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>explore-chengde</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Chengde, a bilingual mobile guide prototype for Chengde Mountain Resort.">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <title>Explore Chengde</title>
+</head>
+<body>
+  <div id="root">
+    <main class="app">
+      <section class="welcome-page" data-page="welcome">
+        <div class="navy-shape navy-shape--top" aria-hidden="true"></div>
+        <svg class="route-line" viewBox="0 0 390 844" preserveAspectRatio="none" aria-hidden="true"><path d="M236 -16 C243 65 275 111 327 145 C369 173 384 217 364 268"></path></svg>
+        <header class="welcome-header">
+          <div class="brand-lockup"><span data-copy="resort"></span><span class="brand-lockup__secondary" data-copy="chineseName"></span></div>
+          <div class="language-switcher" role="group"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中</button></div>
+        </header>
+        <div class="welcome-copy">
+          <h1 data-copy-html="title"></h1>
+          <p class="welcome-copy__intro" data-copy-html="introduction"></p>
+          <span class="gold-rule" aria-hidden="true"></span>
+          <p class="welcome-copy__description" data-copy-html="description"></p>
+        </div>
+        <svg class="welcome-defs" aria-hidden="true"><defs><clipPath id="welcome-photo-clip" clipPathUnits="objectBoundingBox"><path d="M0,0.27 C0.13,0.34 0.25,0.36 0.37,0.31 C0.51,0.25 0.58,0.16 0.72,0.11 C0.83,0.07 0.92,0.055 1,0.035 L1,1 L0,1 Z"></path></clipPath></defs></svg>
+        <div class="landscape" role="img" data-photo></div>
+        <div class="navy-shape navy-shape--bottom" aria-hidden="true"></div>
+        <div class="theme-index" id="theme-index"><span class="theme-index__dot" aria-hidden="true"></span></div>
+        <button class="start-button" id="start-button" type="button"><span data-copy-html="begin"></span><svg aria-hidden="true" viewBox="0 0 32 24"><path d="M2 12h25M18 3l9 9-9 9"></path></svg></button>
+      </section>
+
+      <section class="plan-page" data-page="plan" hidden>
+        <div class="plan-corner-shape" aria-hidden="true"></div>
+        <svg class="plan-gold-line" viewBox="0 0 390 210" preserveAspectRatio="none" aria-hidden="true"><path d="M225 -12 C234 61 271 91 330 116 C362 130 383 152 398 194"></path></svg>
+        <header class="plan-topbar">
+          <button class="back-button" type="button" data-go="welcome"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 12H4M10 5l-7 7 7 7"></path></svg></button>
+          <div class="language-switcher" role="group"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中</button></div>
+        </header>
+        <div class="plan-heading"><p class="plan-eyebrow" data-copy="plan.eyebrow"></p><h1 data-copy="plan.title"></h1><p class="plan-subtitle" data-copy="plan.subtitle"></p></div>
+        <div class="plan-banner" aria-hidden="true"></div>
+        <form class="plan-form" id="plan-form">
+          <fieldset class="plan-fieldset duration-fieldset">
+            <legend><span>01</span><span data-copy="plan.timeQuestion"></span></legend>
+            <div class="duration-options" role="radiogroup">
+              <button type="button" role="radio" data-duration="30"><strong>30</strong><span data-copy="plan.minute"></span></button>
+              <button type="button" role="radio" data-duration="60"><strong>60</strong><span data-copy="plan.minute"></span></button>
+              <button type="button" role="radio" data-duration="90"><strong>90</strong><span data-copy="plan.minute"></span></button>
+            </div>
+          </fieldset>
+          <fieldset class="plan-fieldset interests-fieldset">
+            <legend><span>02</span><span data-copy="plan.interestQuestion"></span></legend>
+            <div class="interest-options" role="radiogroup">
+              <button class="interest-row" type="button" role="radio" data-interest="history"><span class="interest-thumb interest-thumb--history" aria-hidden="true"></span><span class="interest-label" data-interest-label="history"></span><svg aria-hidden="true" viewBox="0 0 32 24"><path d="M2 12h25M18 3l9 9-9 9"></path></svg></button>
+              <button class="interest-row" type="button" role="radio" data-interest="nature"><span class="interest-thumb interest-thumb--nature" aria-hidden="true"></span><span class="interest-label" data-interest-label="nature"></span><svg aria-hidden="true" viewBox="0 0 32 24"><path d="M2 12h25M18 3l9 9-9 9"></path></svg></button>
+              <button class="interest-row" type="button" role="radio" data-interest="architecture"><span class="interest-thumb interest-thumb--architecture" aria-hidden="true"></span><span class="interest-label" data-interest-label="architecture"></span><svg aria-hidden="true" viewBox="0 0 32 24"><path d="M2 12h25M18 3l9 9-9 9"></path></svg></button>
+              <button class="interest-row" type="button" role="radio" data-interest="culture"><span class="interest-thumb interest-thumb--culture" aria-hidden="true"></span><span class="interest-label" data-interest-label="culture"></span><svg aria-hidden="true" viewBox="0 0 32 24"><path d="M2 12h25M18 3l9 9-9 9"></path></svg></button>
+            </div>
+          </fieldset>
+          <button class="continue-button" type="submit"><span data-copy="plan.continue"></span><svg aria-hidden="true" viewBox="0 0 32 24"><path d="M2 12h25M18 3l9 9-9 9"></path></svg></button>
+        </form>
+      </section>
+
+      <section class="preparation-page" data-page="preparation" hidden>
+        <div class="preparation-shape" aria-hidden="true"></div>
+        <svg class="route-preview-line" viewBox="0 0 390 844" preserveAspectRatio="none" aria-hidden="true"><path d="M301 -12 C292 98 342 145 396 181 M203 378 C273 421 277 514 218 577 C181 617 170 663 187 714"></path></svg>
+        <header class="plan-topbar">
+          <button class="back-button" type="button" data-go="plan"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 12H4M10 5l-7 7 7 7"></path></svg></button>
+          <div class="language-switcher" role="group"><button type="button" data-language="en">EN</button><button type="button" data-language="zh">中</button></div>
+        </header>
+        <div class="route-preview-heading"><p class="plan-eyebrow" data-copy="preparation.eyebrow"></p><h1 data-copy="preparation.title"></h1><p data-copy="preparation.description"></p></div>
+        <div class="route-photo" role="img" data-photo></div>
+        <section class="route-flow" aria-labelledby="prototype-label"><p class="prototype-label" id="prototype-label" data-copy="preparation.prototype"></p><ol id="route-steps"></ol></section>
+        <aside class="preference-summary" id="preference-summary">
+          <p data-copy="preparation.preferences"></p>
+          <dl><div><dt data-copy="preparation.duration"></dt><dd id="summary-duration"></dd></div><div><dt data-copy="preparation.interest"></dt><dd id="summary-interest"></dd></div></dl>
+        </aside>
+      </section>
+    </main>
+  </div>
+  <script src="./script.js" defer></script>
+</body>
 </html>

@@ -1,3 +1,17 @@
+/* Base styles */
+:root {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 320px; min-height: 100%; }
+button { font: inherit; }
+[hidden] { display: none !important; }
+
 #root { width: 100%; min-height: 100%; }
 
 .app {
@@ -133,7 +147,7 @@
   left: 0;
   height: 61%;
   overflow: hidden;
-  background: url('/images/264.JPG') 50% 55% / cover no-repeat;
+  background: url('./images/264.JPG') 50% 55% / cover no-repeat;
   clip-path: url('#welcome-photo-clip');
 }
 
@@ -334,7 +348,7 @@
   margin-top: clamp(15px, 2.1vh, 21px);
   background:
     linear-gradient(90deg, var(--navy) 0 47%, rgb(6 59 105 / 24%) 73%, transparent 100%),
-    url('/images/264.JPG') 50% 43% / cover no-repeat;
+    url('./images/264.JPG') 50% 43% / cover no-repeat;
   clip-path: polygon(0 67%, 9% 42%, 21% 20%, 36% 7%, 53% 5%, 71% 18%, 87% 40%, 100% 58%, 100% 100%, 0 100%);
 }
 
@@ -401,7 +415,7 @@
   width: 100%;
   height: 47px;
   border-radius: 48% 52% 46% 54% / 57% 45% 55% 43%;
-  background-image: url('/images/264.JPG');
+  background-image: url('./images/264.JPG');
   background-size: cover;
   box-shadow: inset 0 0 0 1px rgb(6 59 105 / 10%);
 }
@@ -492,7 +506,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: url('/images/264.JPG') 50% 55% / cover no-repeat;
+  background: url('./images/264.JPG') 50% 55% / cover no-repeat;
 }
 
 .route-flow {
